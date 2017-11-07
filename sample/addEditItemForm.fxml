@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.AddEditItemFormController">
+   <columnConstraints>
+      <ColumnConstraints />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints />
+   </rowConstraints>
+   <children>
+      <Pane prefHeight="140.0" prefWidth="250.0">
+         <children>
+            <Label fx:id="addEditLabel" layoutX="14.0" layoutY="14.0" text="actText" />
+            <TextField fx:id="itemNameTextField" layoutX="14.0" layoutY="50.0" onKeyTyped="#itemNameTextFieldTextChanged" prefHeight="31.0" prefWidth="222.0" />
+            <Button layoutX="14.0" layoutY="97.0" mnemonicParsing="false" onAction="#okButtonClick" prefHeight="31.0" prefWidth="106.0" text="OK" />
+            <Button layoutX="130.0" layoutY="97.0" mnemonicParsing="false" onAction="#cancelButtonClick" prefHeight="31.0" prefWidth="106.0" text="Cancel" />
+         </children></Pane>
+   </children>
+</GridPane>

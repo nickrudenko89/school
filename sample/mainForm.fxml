@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.MainFormController">
+   <columnConstraints>
+      <ColumnConstraints />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints />
+   </rowConstraints>
+   <children>
+      <TabPane fx:id="tabPane" prefHeight="600.0" prefWidth="800.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab fx:id="profileTab" text="Profile">
+               <content>
+                  <Pane prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <Label fx:id="userNameLabel" layoutX="34.0" layoutY="30.0" text="UserName">
+                           <font>
+                              <Font size="27.0" />
+                           </font></Label>
+                        <Label fx:id="ageLabel" layoutX="34.0" layoutY="81.0" text="YearsOld">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="passportNumberLabel" layoutX="34.0" layoutY="120.0" text="PassportNum">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="groupNumberLabel" layoutX="34.0" layoutY="159.0" text="GroupNum">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="subjectsLabel" layoutX="34.0" layoutY="198.0" text="Subjects">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <ImageView fx:id="userPhotoImageView" fitHeight="300.0" fitWidth="300.0" layoutX="440.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true" />
+                        <Button fx:id="editProfileButton" layoutX="14.0" layoutY="516.0" mnemonicParsing="false" onAction="#profileTabEditButtonClick" prefHeight="31.0" prefWidth="154.0" text="Edit profile" />
+                     </children>
+                  </Pane>
+               </content></Tab>
+          <Tab fx:id="teachersTab" text="Teachers">
+               <content>
+                  <Pane prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                         <Button fx:id="addTeacherButton" focusTraversable="false" layoutX="14.0" layoutY="98.0" mnemonicParsing="false" onAction="#teachersTabAddButtonClick" prefHeight="31.0" prefWidth="185.0" text="Add teacher" />
+                         <Button fx:id="editTeacherButton" focusTraversable="false" layoutX="14.0" layoutY="140.0" mnemonicParsing="false" onAction="#teachersTabEditButtonClick" prefHeight="31.0" prefWidth="185.0" text="Edit teacher" />
+                         <Button fx:id="deleteTeacherButton" focusTraversable="false" layoutX="14.0" layoutY="182.0" mnemonicParsing="false" onAction="#teachersTabDeleteButtonClick" prefHeight="31.0" prefWidth="185.0" text="Delete teacher" />
+                         <TableView fx:id="teachersTableView" focusTraversable="false" layoutX="218.0" prefHeight="551.0" prefWidth="573.0">
+                          <columns>
+                            <TableColumn fx:id="teacherNameColumn" prefWidth="156.0" text="Name" />
+                            <TableColumn fx:id="teacherAgeColumn" prefWidth="85.0" text="Age" />
+                            <TableColumn fx:id="teacherSubjectsColumn" prefWidth="180.0" text="Subjects" />
+                            <TableColumn fx:id="teacherGroupsColumn" prefWidth="150.0" text="Groups" />
+                          </columns>
+                        </TableView>
+                        <Label focusTraversable="false" layoutX="14.0" layoutY="19.0" text="Search by:" />
+                        <ChoiceBox fx:id="teacherSearchByChoiceBox" focusTraversable="false" layoutX="84.0" layoutY="14.0" prefHeight="31.0" prefWidth="113.0" value="Name">
+                            <items>
+                                <FXCollections fx:factory="observableArrayList">
+                                    <String fx:value="Name" />
+                                    <String fx:value="Subject" />
+                                    <String fx:value="Group" />
+                                </FXCollections>
+                            </items>
+                        </ChoiceBox>
+                        <TextField fx:id="searchTeacherTextField" layoutX="14.0" layoutY="56.0" onKeyReleased="#searchTeacherTextFieldTextChanged" />
+                     </children></Pane>
+               </content>
+          </Tab>
+          <Tab fx:id="studentsTab" text="Students">
+              <content>
+                  <Pane prefHeight="200.0" prefWidth="200.0">
+                      <children>
+                          <Button fx:id="addStudentButton" focusTraversable="false" layoutX="14.0" layoutY="98.0" mnemonicParsing="false" onAction="#studentsTabAddButtonClick" prefHeight="31.0" prefWidth="185.0" text="Add student" />
+                          <Button fx:id="editStudentButton" focusTraversable="false" layoutX="14.0" layoutY="140.0" mnemonicParsing="false" onAction="#studentsTabEditButtonClick" prefHeight="31.0" prefWidth="185.0" text="Edit student" />
+                          <Button fx:id="deleteStudentButton" focusTraversable="false" layoutX="14.0" layoutY="182.0" mnemonicParsing="false" onAction="#studentsTabDeleteButtonClick" prefHeight="31.0" prefWidth="185.0" text="Delete student" />
+                          <TableView fx:id="studentsTableView" focusTraversable="false" layoutX="218.0" prefHeight="551.0" prefWidth="573.0">
+                              <columns>
+                                  <TableColumn fx:id="studentNameColumn" prefWidth="156.0" text="Name" />
+                                  <TableColumn fx:id="studentAgeColumn" prefWidth="85.0" text="Age" />
+                                  <TableColumn fx:id="studentGroupColumn" prefWidth="150.0" text="Group" />
+                                  <TableColumn fx:id="studentSubjectColumn" prefWidth="180.0" text="Subject" />
+                              </columns>
+                          </TableView>
+                          <Label focusTraversable="false" layoutX="14.0" layoutY="19.0" text="Search by:" />
+                          <ChoiceBox fx:id="studentSearchByChoiceBox" focusTraversable="false" layoutX="84.0" layoutY="14.0" prefHeight="31.0" prefWidth="113.0" value="Name">
+                              <items>
+                                  <FXCollections fx:factory="observableArrayList">
+                                      <String fx:value="Name" />
+                                      <String fx:value="Subject" />
+                                      <String fx:value="Group" />
+                                  </FXCollections>
+                              </items>
+                          </ChoiceBox>
+                          <TextField fx:id="searchStudentTextField" layoutX="14.0" layoutY="56.0" onKeyReleased="#searchStudentTextFieldTextChanged" />
+                      </children>
+                  </Pane>
+              </content>
+          </Tab>
+          <Tab fx:id="groupsTab" text="Groups">
+              <content>
+                  <Pane prefHeight="200.0" prefWidth="200.0">
+                      <children>
+                          <Button fx:id="addGroupButton" focusTraversable="false" layoutX="14.0" layoutY="98.0" mnemonicParsing="false" onAction="#groupsTabAddButtonClick" prefHeight="31.0" prefWidth="185.0" text="Add group" />
+                          <Button fx:id="editGroupButton" focusTraversable="false" layoutX="14.0" layoutY="140.0" mnemonicParsing="false" onAction="#groupsTabEditButtonClick" prefHeight="31.0" prefWidth="185.0" text="Edit group" />
+                          <Button fx:id="deleteGroupButton" focusTraversable="false" layoutX="14.0" layoutY="182.0" mnemonicParsing="false" onAction="#groupsTabDeleteButtonClick" prefHeight="31.0" prefWidth="185.0" text="Delete group" />
+                          <TableView fx:id="groupsTableView" focusTraversable="false" layoutX="218.0" onMouseClicked="#groupsTableViewSelectedIndexChanged" prefHeight="551.0" prefWidth="573.0">
+                              <columns>
+                                  <TableColumn fx:id="groupNumberColumn" prefWidth="100.0" text="Number" />
+                                  <TableColumn fx:id="groupAvgAgeColumn" prefWidth="76.0" text="Avg age" />
+                                  <TableColumn fx:id="groupTeacherColumn" prefWidth="140.0" text="Teacher" />
+                                  <TableColumn fx:id="groupSubjectColumn" prefWidth="160.0" text="Subject" />
+                                  <TableColumn fx:id="groupClassroomColumn" prefWidth="95.0" text="Classroom" />
+                              </columns>
+                          </TableView>
+                          <Label focusTraversable="false" layoutX="14.0" layoutY="19.0" text="Search by:" />
+                          <ChoiceBox fx:id="groupSearchByChoiceBox" focusTraversable="false" layoutX="84.0" layoutY="14.0" prefHeight="31.0" prefWidth="113.0" value="Number">
+                              <items>
+                                  <FXCollections fx:factory="observableArrayList">
+                                      <String fx:value="Number" />
+                                      <String fx:value="Teacher" />
+                                      <String fx:value="Subject" />
+                                      <String fx:value="Classroom" />
+                                  </FXCollections>
+                              </items>
+                          </ChoiceBox>
+                          <TextField fx:id="searchGroupTextField" layoutX="14.0" layoutY="56.0" onKeyReleased="#searchGroupTextFieldTextChanged" />
+                          <TableView fx:id="studentsInGroupTableView" focusTraversable="false" layoutX="14.0" layoutY="243.0" prefHeight="305.0" prefWidth="185.0">
+                              <columns>
+                                  <TableColumn fx:id="studentsInGroupColumn" prefWidth="170.0" text="Student name" />
+                              </columns>
+                          </TableView>
+                        <Label focusTraversable="false" layoutX="14.0" layoutY="220.0" text="Students:" />
+                      </children>
+                  </Pane>
+              </content>
+          </Tab>
+          <Tab fx:id="classroomsTab" text="Classrooms">
+              <content>
+                  <Pane prefHeight="200.0" prefWidth="200.0">
+                      <children>
+                          <Button fx:id="addClassroomButton" focusTraversable="false" layoutX="14.0" layoutY="98.0" mnemonicParsing="false" onAction="#classroomsTabAddButtonClick" prefHeight="31.0" prefWidth="185.0" text="Add classroom" />
+                          <Button fx:id="editClassroomButton" focusTraversable="false" layoutX="14.0" layoutY="140.0" mnemonicParsing="false" onAction="#classroomsTabEditButtonClick" prefHeight="31.0" prefWidth="185.0" text="Edit classroom" />
+                          <Button fx:id="deleteClassroomButton" focusTraversable="false" layoutX="14.0" layoutY="182.0" mnemonicParsing="false" onAction="#classroomsTabDeleteButtonClick" prefHeight="31.0" prefWidth="185.0" text="Delete classroom" />
+                          <TableView fx:id="classroomsTableView" focusTraversable="false" layoutX="218.0" prefHeight="551.0" prefWidth="573.0">
+                              <columns>
+                                  <TableColumn fx:id="classroomNumberColumn" prefWidth="156.0" text="Number" />
+                                  <TableColumn fx:id="classroomGroupsColumn" prefWidth="415.0" text="Groups" />
+                              </columns>
+                          </TableView>
+                          <Label focusTraversable="false" layoutX="14.0" layoutY="19.0" text="Search by:" />
+                          <ChoiceBox fx:id="classroomSearchByChoiceBox" focusTraversable="false" layoutX="84.0" layoutY="14.0" prefHeight="31.0" prefWidth="113.0" value="Number">
+                              <items>
+                                  <FXCollections fx:factory="observableArrayList">
+                                      <String fx:value="Number" />
+                                      <String fx:value="Group" />
+                                  </FXCollections>
+                              </items>
+                          </ChoiceBox>
+                          <TextField fx:id="searchClassroomTextField" layoutX="14.0" layoutY="56.0" onKeyReleased="#searchClassroomTextFieldTextChanged" />
+                      </children>
+                  </Pane>
+              </content>
+          </Tab>
+            <Tab fx:id="subjectsTab" text="Subjects">
+                <content>
+                    <Pane prefHeight="200.0" prefWidth="200.0">
+                        <children>
+                            <Button fx:id="addSubjectButton" focusTraversable="false" layoutX="14.0" layoutY="19.0" mnemonicParsing="false" onAction="#subjectsTabAddButtonClick" prefHeight="31.0" prefWidth="185.0" text="Add subject" />
+                            <Button fx:id="editSubjectButton" focusTraversable="false" layoutX="14.0" layoutY="61.0" mnemonicParsing="false" onAction="#subjectsTabEditButtonClick" prefHeight="31.0" prefWidth="185.0" text="Edit subject" />
+                            <Button fx:id="deleteSubjectButton" focusTraversable="false" layoutX="14.0" layoutY="103.0" mnemonicParsing="false" onAction="#subjectsTabDeleteButtonClick" prefHeight="31.0" prefWidth="185.0" text="Delete subject" />
+                            <TableView fx:id="subjectTableView" focusTraversable="false" layoutX="218.0" prefHeight="551.0" prefWidth="573.0">
+                                <columns>
+                                    <TableColumn fx:id="subjectNumberColumn" prefWidth="86.0" text="№" />
+                                    <TableColumn fx:id="subjectNameColumn" prefWidth="485.0" text="Subject" />
+                                </columns>
+                            </TableView>
+                        </children>
+                    </Pane>
+                </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</GridPane>
